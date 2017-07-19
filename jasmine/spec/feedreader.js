@@ -63,8 +63,10 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-        it('menu is hidden by default', function(){
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+        it('is hidden by default', function() {
+            var body = document.body;
+
+            expect(body.classList).toContain('menu-hidden');
         });
 
          /* TODO: Write a test that ensures the menu changes
@@ -73,10 +75,10 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         it('changes visibility when hamburger menu is clicked', function() {
-            $('.menu-icon-link').trigger('click');
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+            $('.menu-icon-link').click();
+            expect($('body').hasClass('menu-hidden')).toBe(false);
 
-            $('menu-icon-link').trigger('click');
+            $('.menu-icon-link').click();
             expect($('body').hasClass('menu-hidden')).toBe(true);
         });
     });
@@ -108,20 +110,20 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        var $feedContentBefore;
-        var $feedContentAfter;
+        var feedContentBefore;
+        var feedContentAfter;
 
         beforeEach(function(done) {
             loadFeed(1, function() {
-                $feedContentBefore = $('feed').html();
+                $feedContentBefore = $('.feed').html();
                 done();
             });
         });
     
         it('content is changed when a new feed is clicked', function(done) {
             loadFeed(2, function() {
-                $feedContentAfter = $('.feed').html();
-                expect($feedContentBefore).not.toEqual($feedContentAfter);
+                feedContentAfter = $('.feed').html();
+                expect(feedContentBefore).not.toEqual(feedContentAfter);
                 done();
             });
         });
