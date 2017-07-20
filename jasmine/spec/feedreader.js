@@ -84,8 +84,8 @@ $(function() {
     
     describe('Initial Entries', function() {
 
-        /* when the loadFeed
-         * function is called and completes its work, there is at least
+        
+        /* when the loadFeed function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
@@ -107,12 +107,13 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        
         var feedBefore;
         var feedAfter;
 
         beforeEach(function(done) {
             loadFeed(1, function() {
-                $feedBefore = $('.feed').html();
+                feedBefore = $('.feed').html();
                 done();
             });
         });
