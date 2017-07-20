@@ -110,20 +110,20 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        var feedContentBefore;
-        var feedContentAfter;
+        var feedBefore;
+        var feedAfter;
 
         beforeEach(function(done) {
             loadFeed(1, function() {
-                $feedContentBefore = $('.feed').html();
+                $feedBefore = $('.feed').html();
                 done();
             });
         });
     
         it('content is changed when a new feed is clicked', function(done) {
             loadFeed(2, function() {
-                feedContentAfter = $('.feed').html();
-                expect(feedContentBefore).not.toEqual(feedContentAfter);
+                feedAfter = $('.feed').html();
+                expect(feedBefore).not.toEqual(feedAfter);
                 done();
             });
         });
