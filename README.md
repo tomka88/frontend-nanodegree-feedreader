@@ -11,7 +11,7 @@ The project aims to provide a test suite for an existing feedreader application 
 
 - scroll down to see Jasmine's panel and whether all tests run properly
 
-- you can find the the specifiaction files [here](jasmmine/spec/feedreader.js)
+- you can find the the specifiaction files [here](../jasmine/spec/feedreader.js)
 
 - there are 7 specs in total that have to run without any failure
 
